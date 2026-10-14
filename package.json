@@ -1,0 +1,8 @@
+{
+  "name": "bep20-usdt-wallet-simulator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BSC token sender with a clearly separated local-only transaction simulator",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" }
+}

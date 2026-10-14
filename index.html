@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BEP-20 Wallet & Simulator</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top"><div class="brand"><img class="brand-logo" src="demousdt-logo.png" alt="Educational USDT custom token logo"><div><strong>Educational USDT Wallet</strong><small>Custom token · BNB Smart Chain</small></div></div><span class="network-pill">BNB Smart Chain · Chain ID 56</span></header>
+  <main>
+    <section class="notice"><strong>Important:</strong> Educational USDT is a custom demo token, not genuine USDT and has no promised monetary value. The supplied logo is shown only as custom app artwork and does not imply Tether affiliation. It can be transferred on BNB Smart Chain Mainnet only after you deploy its contract and pay real BNB gas. It will not become genuine USDT. Never share a recovery phrase or private key.</section>
+    <section class="card wallet-card">
+      <div class="section-head"><div><p class="eyebrow">LIVE BLOCKCHAIN</p><h1>Wallet connection</h1><p class="muted">Connect a compatible browser wallet, such as Trust Wallet Browser Extension or MetaMask.</p></div><button id="connectBtn" class="primary">Connect wallet</button></div>
+      <div class="wallet-info"><div><span class="label">Connected address</span><code id="address">Not connected</code></div><div><span class="label">Network</span><strong id="network">—</strong></div><div><span class="label">Native balance</span><strong id="bnbBalance">—</strong></div><div><span class="label">Token balance</span><strong id="tokenBalance">—</strong></div></div>
+      <p id="walletStatus" class="status" role="status">Connect your wallet to read balances.</p>
+    </section>
+    <div class="grid">
+      <section class="card"><div class="token-title"><img class="token-logo" src="demousdt-logo.png" alt="Educational USDT custom token logo"><div><p class="eyebrow">MAINNET DEMO TOKEN</p><h2>Send Educational USDT to Trust Wallet</h2></div></div><div class="sim-tag">MAINNET · CUSTOM TOKEN · NOT GENUINE USDT</div><p class="muted">Deploy the included EducationalUSDT contract on BNB Smart Chain Mainnet first. Then paste its deployed address below. This creates a separate custom token; it does not credit the recipient’s genuine USDT balance.</p>
+        <label for="mainContract">Your deployed Educational USDT contract address</label><input id="mainContract" autocomplete="off" spellcheck="false" placeholder="0x… (deploy EducationalUSDT.sol first)"><button id="loadTokenBtn" class="secondary full">Load Educational USDT contract and balance</button>
+        <label for="recipient">Recipient Trust Wallet address</label><input id="recipient" autocomplete="off" spellcheck="false" placeholder="0x…">
+        <label for="amount">Amount</label><input id="amount" inputmode="decimal" placeholder="0.00">
+        <button id="sendBtn" class="primary full" disabled>Review and send Educational USDT</button>
+        <p class="tiny">This sends your custom Educational USDT token on BNB Smart Chain Mainnet. It is not genuine USDT. The recipient may need to import the custom token using its contract address. Your wallet approves the transaction; BNB is required for gas.</p><p id="sendStatus" class="status" role="status"></p>
+      </section>
+      <section class="card testnet-card"><p class="eyebrow">ON-CHAIN TEST TOKEN · TESTNET ONLY</p><h2>Send test token to Trust Wallet</h2><div class="sim-tag">TESTNET · NO REAL VALUE</div><p class="muted">After deploying the included TESTUSD contract on BNB Smart Chain Testnet, enter its contract address here. These tokens are not USDT and have no monetary value.</p>
+        <label for="testContract">Your deployed TESTUSD contract address</label><input id="testContract" autocomplete="off" spellcheck="false" placeholder="0x… (deploy contract first)">
+        <label for="testRecipient">Recipient Trust Wallet address</label><input id="testRecipient" autocomplete="off" spellcheck="false" placeholder="0x…">
+        <label for="testAmount">TESTUSD amount</label><input id="testAmount" inputmode="decimal" placeholder="10.00">
+        <button id="testSendBtn" class="secondary full">Switch to testnet and send TESTUSD</button>
+        <p class="tiny">Requires testnet BNB for gas and TESTUSD in the sender wallet. Trust Wallet must be on BNB Smart Chain Testnet; add the token contract manually if it does not appear automatically.</p><p id="testStatus" class="status" role="status"></p>
+      </section>
+      <section class="card simulator"><p class="eyebrow">LOCAL-ONLY TESTING</p><h2>Simulate a transfer</h2><div class="sim-tag">SIMULATED · NOT REAL USDT</div><p class="muted">Create sample transfers to test the UI. These entries exist only in this browser and are not visible on BscScan or spendable in a wallet.</p>
+        <label for="simRecipient">Test recipient label / address</label><input id="simRecipient" placeholder="Example: Test Wallet A">
+        <label for="simAmount">Simulated amount</label><input id="simAmount" inputmode="decimal" placeholder="100.00">
+        <button id="simulateBtn" class="secondary full">Create simulated transfer</button>
+        <div class="sim-balance"><span>Demo balance</span><strong><span id="demoBalance">10,000.00</span> sUSDT</strong></div><p id="simStatus" class="status" role="status"></p>
+      </section>
+    </div>
+    <section class="card"><div class="section-head"><div><p class="eyebrow">ACTIVITY</p><h2>Transaction history</h2></div><button id="clearSimBtn" class="ghost">Clear simulated history</button></div><p class="muted">Real transactions link to BscScan. Simulated records are visibly marked and stored only in this browser.</p><div id="history" class="history-empty">No transactions yet.</div></section>
+    <footer>Educational starter project. Not audited. Educational USDT is a separate custom token, not genuine USDT. Review contract, network, amount, and recipient before confirming.</footer>
+  </main>
+  <script type="module" src="app.js"></script>
+</body></html>
